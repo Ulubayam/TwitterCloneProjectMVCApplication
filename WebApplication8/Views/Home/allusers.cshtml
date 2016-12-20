@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebApplication8.Models.KullaniciTakip>
+
+@{
+    ViewBag.Title = "Tanıyor Olabileceğin Kullanicilar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table">
+   
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.kullaniciNick)
+        </td>
+        <td>
+            @Html.ActionLink("Takip Et", "TakipEt", new { takipEdilenId=item.kullaniciId }) 
+           
+        </td>
+    </tr>
+}
+
+</table>

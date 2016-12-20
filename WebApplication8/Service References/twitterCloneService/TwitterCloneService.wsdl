@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TwitterCloneService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" />
+      <xs:element name="UyeOl">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ad" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="soyad" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cinsiyet" type="xs:boolean" />
+            <xs:element minOccurs="0" name="dogumTarihi" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Nick" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UyeOlResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UyeOlResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetAt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+            <xs:element minOccurs="0" name="tweetText" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetAtResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TweetAtResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetleriGoruntule">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetleriGoruntuleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" minOccurs="0" name="TweetleriGoruntuleResult" nillable="true" type="q1:ArrayOfTweet" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FavorilereEkle">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+            <xs:element minOccurs="0" name="TweetID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FavorilereEkleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="FavorilereEkleResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Nick" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="LoginResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Update">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="kullaniciID" type="xs:int" />
+            <xs:element minOccurs="0" name="ad" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="soyad" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="cinsiyet" type="xs:boolean" />
+            <xs:element minOccurs="0" name="dts" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="mail" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Nick" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipEt">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="takipciID" type="xs:int" />
+            <xs:element minOccurs="0" name="takipEdilenID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipEtResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TakipEtResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipBirak">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="takipciID" type="xs:int" />
+            <xs:element minOccurs="0" name="takipEdilenID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipBirakResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TakipBirakResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetSil">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tweetID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TweetSilResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TweetSilResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipcilerGetir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="takipciID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TakipcilerGetirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" minOccurs="0" name="TakipcilerGetirResult" nillable="true" type="q2:ArrayOfkullanici" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="kullanicilariGoster">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="kullanicilariGosterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" minOccurs="0" name="kullanicilariGosterResult" nillable="true" type="q3:ArrayOfkullanici" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciTweetleri">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KullaniciTweetleriResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" minOccurs="0" name="KullaniciTweetleriResult" nillable="true" type="q4:ArrayOfTweet" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TwitterCloneProjectv1._4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfTweet">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Tweet" nillable="true" type="tns:Tweet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTweet" nillable="true" type="tns:ArrayOfTweet" />
+      <xs:complexType name="Tweet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="favoriSayisi" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="kullaniciID" type="xs:int" />
+          <xs:element minOccurs="0" name="kullaniciNick" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tarih" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="tweetID" type="xs:int" />
+          <xs:element minOccurs="0" name="tweetText" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Tweet" nillable="true" type="tns:Tweet" />
+      <xs:complexType name="ArrayOfkullanici">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="kullanici" nillable="true" type="tns:kullanici" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfkullanici" nillable="true" type="tns:ArrayOfkullanici" />
+      <xs:complexType name="kullanici">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kullaniciID" type="xs:int" />
+          <xs:element minOccurs="0" name="kullaniciNick" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="kullanici" nillable="true" type="tns:kullanici" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ITwitterCloneService_UyeOl_InputMessage">
+    <wsdl:part name="parameters" element="tns:UyeOl" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_UyeOl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UyeOlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetAt_InputMessage">
+    <wsdl:part name="parameters" element="tns:TweetAt" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetAt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TweetAtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetleriGoruntule_InputMessage">
+    <wsdl:part name="parameters" element="tns:TweetleriGoruntule" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetleriGoruntule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TweetleriGoruntuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_FavorilereEkle_InputMessage">
+    <wsdl:part name="parameters" element="tns:FavorilereEkle" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_FavorilereEkle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FavorilereEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipEt_InputMessage">
+    <wsdl:part name="parameters" element="tns:TakipEt" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipEt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TakipEtResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipBirak_InputMessage">
+    <wsdl:part name="parameters" element="tns:TakipBirak" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipBirak_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TakipBirakResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetSil_InputMessage">
+    <wsdl:part name="parameters" element="tns:TweetSil" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TweetSil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TweetSilResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipcilerGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:TakipcilerGetir" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_TakipcilerGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TakipcilerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_kullanicilariGoster_InputMessage">
+    <wsdl:part name="parameters" element="tns:kullanicilariGoster" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_kullanicilariGoster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:kullanicilariGosterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_KullaniciTweetleri_InputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciTweetleri" />
+  </wsdl:message>
+  <wsdl:message name="ITwitterCloneService_KullaniciTweetleri_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KullaniciTweetleriResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITwitterCloneService">
+    <wsdl:operation name="UyeOl">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/UyeOl" message="tns:ITwitterCloneService_UyeOl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/UyeOlResponse" message="tns:ITwitterCloneService_UyeOl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TweetAt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetAt" message="tns:ITwitterCloneService_TweetAt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetAtResponse" message="tns:ITwitterCloneService_TweetAt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TweetleriGoruntule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetleriGoruntule" message="tns:ITwitterCloneService_TweetleriGoruntule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetleriGoruntuleResponse" message="tns:ITwitterCloneService_TweetleriGoruntule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FavorilereEkle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/FavorilereEkle" message="tns:ITwitterCloneService_FavorilereEkle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/FavorilereEkleResponse" message="tns:ITwitterCloneService_FavorilereEkle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/Login" message="tns:ITwitterCloneService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/LoginResponse" message="tns:ITwitterCloneService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/Update" message="tns:ITwitterCloneService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/UpdateResponse" message="tns:ITwitterCloneService_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TakipEt">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipEt" message="tns:ITwitterCloneService_TakipEt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipEtResponse" message="tns:ITwitterCloneService_TakipEt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TakipBirak">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipBirak" message="tns:ITwitterCloneService_TakipBirak_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipBirakResponse" message="tns:ITwitterCloneService_TakipBirak_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TweetSil">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetSil" message="tns:ITwitterCloneService_TweetSil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TweetSilResponse" message="tns:ITwitterCloneService_TweetSil_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TakipcilerGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipcilerGetir" message="tns:ITwitterCloneService_TakipcilerGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/TakipcilerGetirResponse" message="tns:ITwitterCloneService_TakipcilerGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="kullanicilariGoster">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/kullanicilariGoster" message="tns:ITwitterCloneService_kullanicilariGoster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/kullanicilariGosterResponse" message="tns:ITwitterCloneService_kullanicilariGoster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciTweetleri">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITwitterCloneService/KullaniciTweetleri" message="tns:ITwitterCloneService_KullaniciTweetleri_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITwitterCloneService/KullaniciTweetleriResponse" message="tns:ITwitterCloneService_KullaniciTweetleri_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITwitterCloneService" type="tns:ITwitterCloneService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UyeOl">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/UyeOl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TweetAt">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TweetAt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TweetleriGoruntule">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TweetleriGoruntule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FavorilereEkle">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/FavorilereEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakipEt">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TakipEt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakipBirak">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TakipBirak" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TweetSil">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TweetSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakipcilerGetir">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/TakipcilerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kullanicilariGoster">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/kullanicilariGoster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciTweetleri">
+      <soap:operation soapAction="http://tempuri.org/ITwitterCloneService/KullaniciTweetleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TwitterCloneService">
+    <wsdl:port name="BasicHttpBinding_ITwitterCloneService" binding="tns:BasicHttpBinding_ITwitterCloneService">
+      <soap:address location="http://gokhanbirinci.com/TwitterCloneService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
